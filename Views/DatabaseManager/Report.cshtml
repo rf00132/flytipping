@@ -7,7 +7,7 @@
         <input id="reportAddressInput" name="address" required>
 
         <label for="reportCoordinatesInput">Map Pin location Input:</label>
-        <input id="reportCoordinatesInput" name="coords">
+        <div id="reportCoordinatesInput"></div>
 
         <label for="reportDescriptionInput">Please describe the incident:</label>
         <input id="reportDescriptionInput" name="description" required>
@@ -25,3 +25,4 @@
     </form>
 </main>
 <script src="~/js/reportValidation.js" asp-append-version="true"></script>
+<script src="~/js/leafletmap.js" asp-append-version="true"></script>

@@ -104,10 +104,10 @@ nav{
 	padding-bottom: 6px;
 }
 
-
-
+#reportCoordinatesInput{
+	height: 180px;
+}
 /* button styles */
-
 .btn {
 	margin: 5px;
 	padding: 3px 5px;
