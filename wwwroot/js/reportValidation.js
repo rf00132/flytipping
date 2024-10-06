@@ -1,6 +1,5 @@
 ﻿// Company form validation
 const reportAddressInput = document.getElementById("reportAddressInput");
-const reportCoordinatesInput = document.getElementById("reportCoordinatesInput");
 const reportDescriptionInput = document.getElementById("reportDescriptionInput");
 const reportEmailInput = document.getElementById("emailInput");
 const reportPhoneInput = document.getElementById("phoneInput");
