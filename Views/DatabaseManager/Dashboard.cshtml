@@ -1,0 +1,68 @@
+﻿<nav class="main-nav-btns row-flex flex-center">
+    <a href="/DatabaseManager/Report" class="btn">Add Entry <i class="fas fa-plus"></i></a>
+</nav>
+
+<main class=" search-results-cntr column-flex">
+
+@using(Context context = new Context())
+{
+    if( context.Reports.Count() == 0) { 
+        <p class="text-center">The report database is empty.</p>
+    } 
+    else
+    {
+        @foreach (Report report in context.Reports)
+        {
+            <article class="search-result row-flex flex-between">
+                <aside class="search-result-btn-cntr">
+                    @using (Html.BeginForm("DeleteReport", "DatabaseManager"))
+                    {
+                            <button class="btn" name="deleteReport" type="submit" value="@report.Id"><i alt="Rubbish Bin Icon" class="fas fa-trash"></i></button>
+                    }
+                </aside>
+               
+                <section class="result-detail">
+                    <p class="detail-element">ID: @report.Id</p>
+
+                    <p class="detail-element">Address: @report.Address</p>
+
+                    <p class="detail-element">Date of Report: @report.TimeOfReport.Split(" ")[0]</p>
+
+                    <p class="detail-element">Time of Report: @report.TimeOfReport.Split(" ")[1]</p>
+
+                    <p class="detail-element">Description: @report.Description</p>
+
+                    @if (report.Coordinates != null && report.Coordinates != "")
+                    {
+                        <p class="detail-element">@report.DisplayCoords()</p>
+                    }
+
+                    @if (report.PhoneNumber != "" || report.Email != "")
+                    {
+                        <p class="detail-element">Reportee contact info: @report.DisplayContactInfo()</p>
+                    }
+
+                    @if (report.Completed)
+                    {
+                        <p class="detail-element">Report Completed</p>
+                    }
+                    else
+                    {
+                        <p class="detail-element">Report Incomplete</p>
+                    }
+                </section>
+                @if (!report.Completed)
+                {
+                    <aside class="search-result-btn-cntr">
+                        @using (Html.BeginForm("MarkReportCompleted", "DatabaseManager"))
+                        {
+                                <button class="btn" name="completeReport" type="submit" value="@report.Id"><i alt="Checkmark Icon" class="fas fa-check"></i></button>
+                        }
+                    </aside>
+                }
+            </article>
+        }
+    }
+}
+</main>
+

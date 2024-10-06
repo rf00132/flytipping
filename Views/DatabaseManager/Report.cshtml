@@ -1,0 +1,27 @@
+﻿
+<main id="report-add" class="container">
+    <h3 class="text-center">Report a Flytipping incident</h3>
+
+    <form class="column-flex form" method="post" enctype="multipart/form-data">
+        <label for="reportAddressInput">Report Address:</label>
+        <input id="reportAddressInput" name="address" required>
+
+        <label for="reportCoordinatesInput">Map Pin location Input:</label>
+        <input id="reportCoordinatesInput" name="coords">
+
+        <label for="reportDescriptionInput">Please describe the incident:</label>
+        <input id="reportDescriptionInput" name="description" required>
+        
+        <label for="emailInput">Email:</label>
+        <input id="emailInput" name="email">
+
+        <label for="phoneInput">Phone Number:</label>
+        <input id="phoneInput" name="phoneNumber">
+       
+        <p id="reportErrorMessage"></p>
+        <button type="submit" id="reportSubmitBtn" class="btn">Submit Report <i alt="Checkmark Icon" class="fas fa-check"></i></button>
+    
+        
+    </form>
+</main>
+<script src="~/js/reportValidation.js" asp-append-version="true"></script>
