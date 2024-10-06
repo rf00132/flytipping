@@ -17,9 +17,19 @@
                 <aside class="search-result-btn-cntr">
                     @using (Html.BeginForm("DeleteReport", "DatabaseManager"))
                     {
-                            <button class="btn" name="deleteReport" type="submit" value="@report.Id"><i alt="Rubbish Bin Icon" class="fas fa-trash"></i></button>
+                            <button class="btn" name="deleteReport" type="submit" value="@report.Id" alt="Delete Report Button"><i alt="Rubbish Bin Icon" class="fas fa-trash"></i></button>
+                    }
+                    @if (!report.Completed)
+                    {
+                        @using (Html.BeginForm("MarkReportCompleted", "DatabaseManager"))
+                        {
+                            <button class="btn complete-btn" name="completeReport" type="submit" value="@report.Id" alt="Complete Report Button"><i alt="Checkmark Icon" class="fas fa-check"></i></button>
+                        }
+
                     }
                 </aside>
+
+                
                
                 <section class="result-detail">
                     <p class="detail-element">ID: @report.Id</p>
@@ -51,15 +61,7 @@
                         <p class="detail-element">Report Incomplete</p>
                     }
                 </section>
-                @if (!report.Completed)
-                {
-                    <aside class="search-result-btn-cntr">
-                        @using (Html.BeginForm("MarkReportCompleted", "DatabaseManager"))
-                        {
-                                <button class="btn" name="completeReport" type="submit" value="@report.Id"><i alt="Checkmark Icon" class="fas fa-check"></i></button>
-                        }
-                    </aside>
-                }
+                
             </article>
         }
     }

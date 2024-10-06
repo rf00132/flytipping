@@ -228,7 +228,7 @@ nav{
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 40px;
+	height: auto;
 }
 
 .result-detail {
@@ -236,11 +236,18 @@ nav{
 	justify-content: space-between;
 	flex-wrap: wrap;
 	flex-direction: column;
+	width: 100%;
+}
+
+.detail-element{
+	display:flex;
+	width: 80%;
 }
 
 .result-detail .detail-element{
 	padding: 3px 8px;
 }
+
 
 
 
