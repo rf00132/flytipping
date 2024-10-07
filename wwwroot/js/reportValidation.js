@@ -1,6 +1,5 @@
 ﻿// Company form validation
 const reportAddressInput = document.getElementById("reportAddressInput");
-const reportCoordinatesInput = document.getElementById("reportCoordinatesInput");
 const reportDescriptionInput = document.getElementById("reportDescriptionInput");
 const reportEmailInput = document.getElementById("emailInput");
 const reportPhoneInput = document.getElementById("phoneInput");
@@ -16,6 +15,7 @@ let vaildEmail;
 //disables form from posting if inputs are invalid
 function ValidateForm(event) {
     validAddress = reportAddressInput.value.length > 0 && reportAddressInput.value != " ";
+    validAddress = validAddress || reportCoordinatesInput.value != "";
     validDescription = reportDescriptionInput.value != "";
     validEmail = emailRegex.test(reportEmailInput.value) || reportEmailInput.value == "";
     validPhone = phoneRegex.test(reportPhoneInput.value) || reportPhoneInput.value == "";
@@ -30,7 +30,7 @@ function ValidateForm(event) {
 function SetInputsInvalid() {
     if (!validAddress) {
         reportAddressInput.style.borderColor = borderErrorColor;
-        errorMessageContainer.innerText += "Please enter the address\n";
+        errorMessageContainer.innerText += "Please enter an address or place a location on the map\n";
     }
     if (!validDescription) {
         reportDescriptionInput.style.borderColor = borderErrorColor;

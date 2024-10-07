@@ -4,13 +4,15 @@
 
     <form class="column-flex form" method="post" enctype="multipart/form-data">
         <label for="reportAddressInput">Report Address:</label>
-        <input id="reportAddressInput" name="address" required>
+        <input id="reportAddressInput" name="address">
 
         <label for="reportCoordinatesInput">Map Pin location Input:</label>
-        <input id="reportCoordinatesInput" name="coords">
+        <div id="map">
+            <input id="reportCoordinatesInput" name="coords">
+        </div>
 
         <label for="reportDescriptionInput">Please describe the incident:</label>
-        <input id="reportDescriptionInput" name="description" required>
+        <input id="reportDescriptionInput" name="description">
         
         <label for="emailInput">Email:</label>
         <input id="emailInput" name="email">
@@ -24,4 +26,5 @@
         
     </form>
 </main>
+<script src="~/js/leafletmap.js" asp-append-version="true"></script>
 <script src="~/js/reportValidation.js" asp-append-version="true"></script>
