@@ -1,30 +1,39 @@
 ﻿<main class="container">
     <h3 class="text-center">Delete Report</h3>
 
-    <article class="search-result row-flex flex-between" method="post">
-        <section class="flex-cntr column-flex">
-            <label>Address:</label>
-            <p>@DatabaseManagement.SelectedReport.Address</p>
-
-            <label>Coordinates:</label>
-            <p>@DatabaseManagement.SelectedReport.Coordinates</p>
-
-
-            <label>Reportee Contact Info:</label>
-            <p>@DatabaseManagement.SelectedReport.Email, @DatabaseManagement.SelectedReport.PhoneNumber</p>
+    <div class="search-result row-flex flex-between">
+        <article class="flex-cntr column-flex">
+            <h4>Report ID: @DatabaseManagement.SelectedReport.Id</h4>
+            
+            @if(DatabaseManagement.SelectedReport.Address != "")
+            {
+                <label>Address:</label>
+                <p>@DatabaseManagement.SelectedReport.Address</p>
+            }
+            
+            @if(DatabaseManagement.SelectedReport.Coordinates != "")
+            {
+                <label>Coordinates:</label>
+                <p>@DatabaseManagement.SelectedReport.DisplayCoords()</p>
+            }
+           
+            @if (@DatabaseManagement.SelectedReport.HasContactInfo())
+            {
+                <label>Reportee Contact Info:</label>
+                <p>@DatabaseManagement.SelectedReport.DisplayContactInfo()</p>
+            }
 
             <label>Description:</label>
             <p>@DatabaseManagement.SelectedReport.Description</p>
 
-
             <label>Date and Time Reported:</label>
             <p>@DatabaseManagement.SelectedReport.TimeOfReport.Split(" ")[1], @DatabaseManagement.SelectedReport.TimeOfReport.Split(" ")[0]</p>
-        </section>
+        </article>
         <aside class="search-result-btn-cntr" id="confirm-delete-btn">
             @using (Html.BeginForm("ConfirmDelete", "DatabaseManager"))
             {
-                <button class="btn" name="deleteReport" type="submit" value="@DatabaseManagement.SelectedReport.Id">Confirm Delete<i alt="Rubbish Bin Icon" class="fas fa-trash"></i></button>
+                <button class="btn" name="deleteReport" type="submit" value="@DatabaseManagement.SelectedReport.Id">Confirm Deletion</button>
             }
         </aside>
-    </article>
+    </div>
 </main>

@@ -1,30 +1,33 @@
-﻿
-<main id="report-add" class="container">
+﻿<main id="report-add" class="container">
     <h3 class="text-center">Report a Flytipping incident</h3>
 
     <form class="column-flex form" method="post" enctype="multipart/form-data">
         <label for="reportAddressInput">Report Address:</label>
         <input id="reportAddressInput" name="address">
+        <p>Either a text address OR a map pin location is required, you do not have to do both.</p>
 
         <label for="reportCoordinatesInput">Map Pin location Input:</label>
         <div id="map">
             <input id="reportCoordinatesInput" name="coords">
         </div>
 
-        <label for="reportDescriptionInput">Please describe the incident:</label>
+        <label for="reportDescriptionInput">Description:*</label>
         <input id="reportDescriptionInput" name="description">
-        
+        <p>Please leave any addition information about the incident that you can</p>
+
         <label for="emailInput">Email:</label>
         <input id="emailInput" name="email">
 
         <label for="phoneInput">Phone Number:</label>
         <input id="phoneInput" name="phoneNumber">
-       
+        <p>contact information is optional and only needed if you would like to be informed of any updates on the incidents resolution.</p>
+        <p>Any contact information submitted to this form will be deleted when the incident has been resolved.</p>
         <p id="reportErrorMessage"></p>
-        <button type="submit" id="reportSubmitBtn" class="btn">Submit Report <i alt="Checkmark Icon" class="fas fa-check"></i></button>
+        <button type="submit" id="reportSubmitBtn" class="btn">Submit Report</button>
     
         
     </form>
 </main>
+
 <script src="~/js/leafletmap.js" asp-append-version="true"></script>
 <script src="~/js/reportValidation.js" asp-append-version="true"></script>

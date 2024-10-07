@@ -1,5 +1,5 @@
 ﻿<nav class="main-nav-btns row-flex flex-center">
-    <a href="/DatabaseManager/Report" class="btn">Add Entry <i class="fas fa-plus"></i></a>
+    <a href="/DatabaseManager/Report" class="btn">Add Entry</a>
 </nav>
 
 <main class=" search-results-cntr column-flex">
@@ -13,17 +13,17 @@
     {
         @foreach (Report report in context.Reports)
         {
-            <article class="search-result row-flex flex-between">
+            <div class="search-result row-flex flex-between">
                 <aside class="search-result-btn-cntr">
                     @using (Html.BeginForm("DeleteReport", "DatabaseManager"))
                     {
-                            <button class="btn" name="deleteReport" type="submit" value="@report.Id" alt="Delete Report Button"><i alt="Rubbish Bin Icon" class="fas fa-trash"></i></button>
+                        <button class="btn delete-btn" name="deleteReport" type="submit" value="@report.Id">Delete</button>
                     }
                     @if (!report.Completed)
                     {
                         @using (Html.BeginForm("MarkReportCompleted", "DatabaseManager"))
                         {
-                            <button class="btn complete-btn" name="completeReport" type="submit" value="@report.Id" alt="Complete Report Button"><i alt="Checkmark Icon" class="fas fa-check"></i></button>
+                            <button class="btn complete-btn" name="completeReport" type="submit" value="@report.Id">Mark Complete</button>
                         }
 
                     }
@@ -32,9 +32,12 @@
                 
                
                 <section class="result-detail">
-                    <p class="detail-element">ID: @report.Id</p>
-
-                    <p class="detail-element">Address: @report.Address</p>
+                    <h4 class="detail-element">ID: @report.Id</h4>
+                    @if(report.Address != "")
+                    {
+                        <p class="detail-element">Address: @report.Address</p>
+                    }
+                        
 
                     <p class="detail-element">Date of Report: @report.TimeOfReport.Split(" ")[0]</p>
 
@@ -47,7 +50,7 @@
                         <p class="detail-element">@report.DisplayCoords()</p>
                     }
 
-                    @if (report.PhoneNumber != "" || report.Email != "")
+                    @if (report.HasContactInfo())
                     {
                         <p class="detail-element">Reportee contact info: @report.DisplayContactInfo()</p>
                     }
@@ -62,7 +65,7 @@
                     }
                 </section>
                 
-            </article>
+            </div>
         }
     }
 }

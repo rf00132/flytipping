@@ -1,14 +1,10 @@
 /*
 main colour: #684FFF
 
-accent colour:
+accent colour: #FFB000
 
-secondary accent colour: #FFB000
-
-first bp: 450px
-second bp: 768px
-third bp:
-fourth bp:
+first bp: 470px
+second bp: 800px
 */
 
 
@@ -31,8 +27,12 @@ nav{
 	padding-left: 20px;
 }
 
-.delete-warning-message{
-	display: none;
+label{
+	font-size: 20px;
+}
+
+form p {
+	font-size: 14px;
 }
 
 /* general styles */
@@ -140,6 +140,10 @@ nav{
 
 #confirm-complete-btn .btn, #confirm-delete-btn .btn{
 	width: 100px;
+}
+
+.complete-btn, .delete-btn{
+	width: 180px;
 }
 
 /* update & view styles  */
@@ -258,7 +262,7 @@ nav{
 }
 
 .search-result .btn{
-	width: 55px;
+	width: 70px;
 	font-size: 12px;
 }
 
