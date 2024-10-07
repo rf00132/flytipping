@@ -36,7 +36,8 @@ namespace DatabaseManager.Models
 
         public string DisplayCoords()
         {
-            return "Coords: " + Coordinates;
+            string[] coords = Coordinates.Split(",");
+            return coords[0] + ", " + coords[1];
         }
 
         public string DisplayContactInfo()

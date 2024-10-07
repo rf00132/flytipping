@@ -1,13 +1,15 @@
 ﻿<main class="container">
     <h3 class="text-center">Complete Report</h3>
 
-    <article class="search-result row-flex flex-between" method="post">
-        <section class="flex-cntr column-flex">
+    <div class="search-result row-flex flex-between">
+        <article class="flex-cntr column-flex">
+            <h4>Report ID: @DatabaseManagement.SelectedReport.Id</h4>
+
             <label>Address:</label>
             <p>@DatabaseManagement.SelectedReport.Address</p>
 
             <label>Coordinates:</label>
-            <p>@DatabaseManagement.SelectedReport.Coordinates</p>
+            <p class="flex-wrap">@DatabaseManagement.SelectedReport.DisplayCoords()</p>
 
 
             <label>Reportee Contact Info:</label>
@@ -19,12 +21,12 @@
 
             <label>Date and Time Reported:</label>
             <p>@DatabaseManagement.SelectedReport.TimeOfReport.Split(" ")[1], @DatabaseManagement.SelectedReport.TimeOfReport.Split(" ")[0]</p>
-        </section>
+        </article>
         <aside class="search-result-btn-cntr" id="confirm-complete-btn">
             @using (Html.BeginForm("ConfirmComplete", "DatabaseManager"))
             {
-                <button class="btn" name="completeReport" type="submit" value="@DatabaseManagement.SelectedReport.Id">Confirm Complete <i alt="Checkmark Icon" class="fas fa-check"></i></button>
+                <button class="btn" name="completeReport" type="submit" value="@DatabaseManagement.SelectedReport.Id">Confirm Completion</button>
             }
         </aside>
-    </article>
+    </div>
 </main>

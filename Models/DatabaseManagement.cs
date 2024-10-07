@@ -10,7 +10,7 @@ namespace DatabaseManager.Models
     public static class DatabaseManagement
     { 
         public static List<Report> Reports = new List<Report>();
-        public static List<List<Report>> ReportSearchResults { get; set; } = new List<List<Report>>();
+        
         public static Report SelectedReport = new();
 
         
@@ -40,8 +40,7 @@ namespace DatabaseManager.Models
             using (Context context = new Context())
             {
                 Report reportToEdit = context.Reports.First(p => p.Id == report.Id);
-                reportToEdit.DeletePersonalInfo();
-                reportToEdit.Completed = true;
+                reportToEdit.MarkComplete();
                 context.Entry(reportToEdit).State = EntityState.Modified;
                 context.SaveChanges();
             }
