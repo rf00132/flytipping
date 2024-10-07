@@ -138,6 +138,10 @@ nav{
 	width: 100px;
 }
 
+.complete-btn, .delete-btn{
+	width: 180px;
+}
+
 /* update & view styles  */
 
 
@@ -254,7 +258,7 @@ nav{
 }
 
 .search-result .btn{
-	width: 55px;
+	width: 70px;
 	font-size: 12px;
 }
 

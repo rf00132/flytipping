@@ -17,7 +17,7 @@
                 <aside class="search-result-btn-cntr">
                     @using (Html.BeginForm("DeleteReport", "DatabaseManager"))
                     {
-                            <button class="btn" name="deleteReport" type="submit" value="@report.Id">Delete</button>
+                        <button class="btn delete-btn" name="deleteReport" type="submit" value="@report.Id">Delete</button>
                     }
                     @if (!report.Completed)
                     {
@@ -33,8 +33,11 @@
                
                 <section class="result-detail">
                     <h4 class="detail-element">ID: @report.Id</h4>
-
-                    <p class="detail-element">Address: @report.Address</p>
+                    @if(report.Address != "")
+                    {
+                        <p class="detail-element">Address: @report.Address</p>
+                    }
+                        
 
                     <p class="detail-element">Date of Report: @report.TimeOfReport.Split(" ")[0]</p>
 
@@ -47,7 +50,7 @@
                         <p class="detail-element">@report.DisplayCoords()</p>
                     }
 
-                    @if (report.PhoneNumber != "" || report.Email != "")
+                    @if (report.HasContactInfo())
                     {
                         <p class="detail-element">Reportee contact info: @report.DisplayContactInfo()</p>
                     }
