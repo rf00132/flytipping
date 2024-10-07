@@ -27,8 +27,12 @@ nav{
 	padding-left: 20px;
 }
 
-.delete-warning-message{
-	display: none;
+label{
+	font-size: 20px;
+}
+
+form p {
+	font-size: 14px;
 }
 
 /* general styles */
