@@ -35,18 +35,7 @@ form p {
 	font-size: 14px;
 }
 
-/* general styles */
-.page-top {
-	margin-top: 60px;
-}
-
-.page-bottom {
-	margin-bottom: 60px;
-}
 /* text styles */
-.page-title {
-	width: 100%;
-}
 
 .text-center{
 	text-align: center;
@@ -315,10 +304,6 @@ form p {
 @media screen and (min-width: 800px) {
 	.container{
 		width: 780px
-	}
-
-	html label, html p, html input, html select{
-		font-size: 16px;
 	}
 
 	.update .column-flex, .view .column-flex {
